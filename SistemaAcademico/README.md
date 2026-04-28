@@ -15,8 +15,6 @@
 | 5 | Nome Completo | Interface Gráfica |
 | 6 | Nome Completo | Documentação e Testes |
 
-[cite_start][cite: 1287-1293]
-
 ---
 
 ## 🏧 Como Executar — Caixa Eletrônico
