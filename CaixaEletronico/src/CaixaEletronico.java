@@ -36,29 +36,112 @@ public class CaixaEletronico implements ICaixaEletronico {
  // =====================================================
  @Override
  public String pegaValorTotalDisponivel() {
- // TODO: Integrante 3 implementa aqui
+ // TODO: Pedro Miguel
  return "";
  }
  @Override
  public String sacar(Integer valor) {
- // TODO: Integrante 2 implementa aqui
- return "";
+
+     // Validacao 1: valor invalido
+     if (valor == null || valor <= 0) {
+         return "Erro: informe um valor positivo para o saque.";
+     }
+
+     // Validacao 2: cota minima
+     if (calcularTotal() <= cotaMinima) {
+         return "Caixa Vazio: Chame o Operador";
+     }
+
+     // Calculo das notas
+     int[] notasUsadas = new int[cedulas.length];
+     int valorRestante = valor;
+     int totalCedulas = 0;
+
+     for (int i = 0; i < cedulas.length; i++) {
+         int valorNota = cedulas[i][0];
+         int disponivel = cedulas[i][1];
+
+         if (valorNota > valorRestante) continue;
+
+         int usar = Math.min(valorRestante / valorNota, disponivel);
+         notasUsadas[i] = usar;
+         valorRestante -= usar * valorNota;
+         totalCedulas += usar;
+     }
+
+     // Validacao 3: nao conseguiu pagar
+     if (valorRestante != 0) {
+         return "Saque nao realizado por falta de cedulas.\n" +
+                "Nao e possivel pagar R$ " + valor + " com as notas disponiveis.";
+     }
+
+     // Validacao 4: mais de 30 cedulas
+     if (totalCedulas > 30) {
+         return "Saque nao permitido: seriam emitidas " + totalCedulas +
+                " cedulas.\nLimite maximo e 30 cedulas por saque.";
+     }
+
+     // Efetua o saque — atualiza a matriz
+     StringBuilder resultado = new StringBuilder();
+     resultado.append("=== SAQUE REALIZADO ===\n");
+     resultado.append("Valor: R$ " + valor + "\n");
+     resultado.append("Cedulas emitidas:\n");
+
+     for (int i = 0; i < cedulas.length; i++) {
+         if (notasUsadas[i] > 0) {
+             cedulas[i][1] -= notasUsadas[i];
+             resultado.append("  R$ " + cedulas[i][0] +
+                              ": " + notasUsadas[i] + " nota(s)\n");
+         }
+     }
+
+     resultado.append("Total de cedulas: " + totalCedulas + "\n");
+
+     // Verifica cota minima apos saque
+     int totalApos = calcularTotal();
+     if (totalApos <= cotaMinima) {
+         resultado.append("\nCaixa Vazio: Chame o Operador");
+     }
+
+     // Registra no extrato
+     extrato.add("Saque R$ " + valor + " | Cedulas: " +
+                 totalCedulas + " | Saldo apos: R$ " + totalApos);
+
+     return resultado.toString();
  }
  @Override
  public String pegaRelatorioCedulas() {
- // TODO: Integrante 2 implementa aqui
- return "";
+     StringBuilder sb = new StringBuilder();
+     sb.append("=== RELATORIO DE CEDULAS ===\n");
+     sb.append("----------------------------\n");
+     for (int i = 0; i < cedulas.length; i++) {
+         sb.append("Nota R$ " + cedulas[i][0] +
+                   ": " + cedulas[i][1] + " unidade(s)\n");
+     }
+     sb.append("----------------------------\n");
+     sb.append("Total: R$ " + calcularTotal());
+     return sb.toString();
  }
  @Override
  public String reposicaoCedulas(Integer cedula, Integer quantidade) {
- // TODO: Integrante 3 implementa aqui
+ // TODO: Pedro Miguel 
  return "";
  }
  @Override
  public String armazenaCotaMinima(Integer minimo) {
- // TODO: Integrante 3 implementa aqui
+ // TODO: Pedro Miguel
  return "";
  }
+ 
+//Metodo auxiliar — calcula o total disponivel no caixa
+private int calcularTotal() {
+  int total = 0;
+  for (int i = 0; i < cedulas.length; i++) {
+      total += cedulas[i][0] * cedulas[i][1];
+  }
+  return total;
+}
+ 
  // =====================================================
  // GETTERS (para os outros integrantes acessarem)
  // =====================================================
@@ -79,9 +162,16 @@ public class CaixaEletronico implements ICaixaEletronico {
  public static void main(String[] args) {
 	    CaixaEletronico caixa = new CaixaEletronico();
 
-	    System.out.println("=== TESTE ===");
+	    System.out.println("=== TESTE RELATORIO ===");
 	    System.out.println(caixa.pegaRelatorioCedulas());
-	    System.out.println(caixa.sacar(150));
-	    System.out.println(caixa.pegaValorTotalDisponivel());
+
+	    System.out.println("\n=== TESTE SAQUE R$380 ===");
+	    System.out.println(caixa.sacar(380));
+
+	    System.out.println("\n=== TESTE SAQUE R$3 (impossivel) ===");
+	    System.out.println(caixa.sacar(3));
+
+	    System.out.println("\n=== RELATORIO APOS SAQUE ===");
+	    System.out.println(caixa.pegaRelatorioCedulas());
 	}
 }
