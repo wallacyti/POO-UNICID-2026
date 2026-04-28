@@ -8,7 +8,7 @@
 |---|-----------|-----------------|
 | 1 | Wallacy Souza | Arquitetura e GitHub |
 | 2 | Nome Completo | Logica de Saque |
-| 3 | Nome Completo | Reposicao e Extrato |
+| 3 | Pedro Miguel  | Reposicao e Extrato |
 | 4 | Nome Completo | Banco de Dados |
 | 5 | Nome Completo | Interface Grafica |
 | 6 | Nome Completo | Documentacao e Testes |
