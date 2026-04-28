@@ -75,3 +75,5 @@ public class CaixaEletronico implements ICaixaEletronico {
  // janela.show();
  }
 }
+
+// Wallacy é gay
