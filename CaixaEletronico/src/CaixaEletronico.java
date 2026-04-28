@@ -69,9 +69,19 @@ public class CaixaEletronico implements ICaixaEletronico {
  // =====================================================
  // METODO MAIN — inicia a interface grafica do professor
  // =====================================================
- public static void main(String[] args) {
+ //public static void main(String[] args) {
  // NAO ALTERE ESTA LINHA — e exatamente como o professor pediu
  // GUI janela = new GUI(CaixaEletronico.class);
  // janela.show();
- }
+// }
+ 
+//Teste temporário sem a GUI:
+ public static void main(String[] args) {
+	    CaixaEletronico caixa = new CaixaEletronico();
+
+	    System.out.println("=== TESTE ===");
+	    System.out.println(caixa.pegaRelatorioCedulas());
+	    System.out.println(caixa.sacar(150));
+	    System.out.println(caixa.pegaValorTotalDisponivel());
+	}
 }
