@@ -36,8 +36,18 @@ public class CaixaEletronico implements ICaixaEletronico {
  // =====================================================
  @Override
  public String pegaValorTotalDisponivel() {
- // TODO: Pedro Miguel
- return "";
+	 int valorTotal = 0;
+	 
+	 //Percorre toda a linha da matriz de cedulas
+	 for (int i = 0; i < cedulas.length; i++) {
+		 int valorDaNota = cedulas[i][0];
+		 int quantidadeDisponivel = cedulas[i][1];
+		 
+	//Multiplica o valor da nota pela quantidade e soma ao total
+		 valorTotal += (valorDaNota * quantidadeDisponivel);
+	 }
+	 
+ return String.value0f(valorTotal);
  }
  @Override
  public String sacar(Integer valor) {
