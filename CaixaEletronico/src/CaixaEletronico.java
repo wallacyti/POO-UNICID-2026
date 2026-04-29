@@ -134,13 +134,32 @@ public class CaixaEletronico implements ICaixaEletronico {
  }
  @Override
  public String reposicaoCedulas(Integer cedula, Integer quantidade) {
- // TODO: Pedro Miguel 
- return "";
+	 //Percorre as gavetas do caixa para achar a nota certa
+	 for (int = 0; i < cedulas.length; i++) {
+		 //Se achou a gaveta com o valor da cedula que o carro-forte trouxe
+		 if (cedulas[i][0] == cedula) {
+			 // soma a quantidade nova com a que já tinha lá
+			 cedulas[i][1] += quantidade;
+			 return "Cédulas repostas com sucesso!";
+		 }
+	 }
+	 return "Cédula inválida";
  }
+ 
  @Override
  public String armazenaCotaMinima(Integer minimo) {
- // TODO: Pedro Miguel
- return "";
+ // 1º Segurança: Verifica se o valor veio vazio
+	if (minimo = null) {
+		return "Erro: O valor da cota minima não pode ser nulo.";
+	}
+	
+// 2º Segurança: Verifica se o valor é negativo
+	if (minimo = 0) {
+		return "Erro: O valor da cota minima não pode ser negativo.";
+	}
+//Se passou pela segurança, pode salvar no post-it!
+	this.cotaMinima = minimo;
+	return "Cota minima atualizada com sucesso.";
  }
  
 //Metodo auxiliar — calcula o total disponivel no caixa
