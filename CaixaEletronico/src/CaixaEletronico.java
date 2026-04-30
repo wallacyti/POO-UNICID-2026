@@ -209,7 +209,9 @@ public class CaixaEletronico implements ICaixaEletronico {
      * Método principal que inicializa a Interface Gráfica do sistema.
      */
     public static void main(String[] args) {
-        GUI janela = new GUI(CaixaEletronico.class);
-        janela.show();
+       
+    	// JOão coloca GUI Aqui
+       // GUI janela = new GUI(CaixaEletronico.class);
+        // janela.show();
     }
 }
