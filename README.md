@@ -1,36 +1,49 @@
-# 📁 Caixa Eletronico + 📁 Sistema Academico
-## Programacao Orientada a Objetos — UNICID 2026
-> Projetos desenvolvidos para a disciplina de POO em Java,
-> Prof. Jadir Custodio Mendonca Junior
+# 🏦 Caixa Eletrônico
+## Programação Orientada a Objetos — UNICID 2026
+
+> Projeto desenvolvido para a disciplina de POO em Java, sob orientação do **Prof. Jadir Custódio Mendonça Junior**.
+
 ---
-## 📁 Grupo
+
+## 👥 Grupo
 | # | Integrante | Responsabilidade |
-|---|-----------|-----------------|
-| 1 | Wallacy Souza | Arquitetura e GitHub |
-| 2 | Nome Completo | Logica de Saque |
-| 3 | Pedro Miguel  | Reposicao e Extrato |
-| 4 | Nome Completo | Banco de Dados |
-| 5 | Nome Completo | Interface Grafica |
-| 6 | Nome Completo | Documentacao e Testes |
+|---|------------|------------------|
+| 1 | **Benjamin** | Documentação |
+| 2 | **Eder** | Testes |
+| 3 | **Igor** | Interface Gráfica |
+| 4 | **João** | Lógica de Saque |
+| 5 | **Kelvin** | Documentação |
+| 6 | **Pedro Miguel** | Reposição e Extrato |
+| 7 | **Wallacy Souza** | Arquitetura e GitHub |
+
 ---
-## 📁 Como Executar — Caixa Eletronico
-### Pre-requisitos
-- Java JDK 11 ou superior
-- Eclipse IDE (ou IntelliJ)
-### Passos
-1. Clone: `git clone https://github.com/USUARIO/POO-UNICID-2026`
-2. Abra o Eclipse > File > Import > Existing Java Project
-3. Selecione a pasta `CaixaEletronico/`
-4. Build Path > Add External JARs > selecione `GUI.jar`
-5. Execute `CaixaEletronico.java`
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+* **Java JDK 11** ou superior
+* **Eclipse IDE** (ou IntelliJ IDEA)
+
+### Passos para Instalação
+1. Clone este repositório em sua máquina: `git clone https://github.com/wallacyti/POO-UNICID-2026`
+2. Abra o Eclipse e vá em `File > Import > Existing Java Project`.
+3. Selecione a pasta raiz do projeto.
+4. Clique com o botão direito no projeto > `Build Path > Add External JARs` > selecione o arquivo da interface gráfica (fornecido pelo professor ou desenvolvido pela equipe).
+5. Execute o arquivo principal `CaixaEletronico.java`.
+
 ---
-## 📁 Tecnologias
-- Java 11+ | Java Swing | MySQL 8.0 | JDBC | Git
-## 📁 Funcionalidades
-### Caixa Eletronico
-- [x] Saque priorizando notas maiores
-- [x] Limite de 30 cedulas por saque
-- [x] Relatorio de cedulas
-- [x] Reposicao de cedulas
-- [x] Cota minima configuravel
-- [x] Extrato ao sair
+
+## 🛠️ Tecnologias Utilizadas
+* **Linguagem:** Java 11+
+* **Interface Gráfica:** Java Swing
+* **Controle de Versão:** Git & GitHub
+
+---
+
+## ✨ Funcionalidades Implementadas
+- [x] Lógica de saque (Algoritmo Guloso priorizando notas maiores)
+- [x] Limite de segurança de no máximo 30 cédulas por saque
+- [x] Relatório detalhado do estoque de cédulas
+- [x] Sistema de reposição de cédulas
+- [x] Configuração de cota mínima de operação
+- [x] Geração de extrato detalhado ao encerrar a sessão
