@@ -1,3 +1,5 @@
+package caixaeletronico;
+
 /**
 * Interface (contrato) para utilizacao da interface grafica.
 * Define as operacoes de entrada e saida do caixa eletronico.
