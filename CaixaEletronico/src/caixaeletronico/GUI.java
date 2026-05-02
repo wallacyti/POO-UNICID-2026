@@ -124,7 +124,13 @@ public class GUI extends JFrame {
         btnCotaMinima_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btnCotaMinima_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                // Verifica se a interface instanciada é a nossa classe concreta
+                if (GUI.this.caixa instanceof CaixaEletronico) {
+                    // Faz o cast para acessar o método gerarExtrato() que criamos fora da interface
+                    String extrato = ((CaixaEletronico) GUI.this.caixa).gerarExtrato();
+                    JOptionPane.showMessageDialog(null, extrato, "Extrato Bancário", JOptionPane.INFORMATION_MESSAGE);
+                }
+                System.exit(0); // Fecha o programa após o usuário dar OK no extrato
             }
         });
 

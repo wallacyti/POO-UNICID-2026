@@ -148,9 +148,9 @@ public class CaixaEletronico implements ICaixaEletronico {
     public List<String> getExtrato() { return extrato; }
     public void setCotaMinima(int v) { cotaMin = v; }
 
-    public static void main(String[] args) {
-        ICaixaEletronico caixa = new CaixaEletronico();
-        GUI janela = new GUI(caixa);
-        janela.setVisible(true); // Substitui o janela.show()
-    }
+    //public static void main(String[] args) {
+      //  ICaixaEletronico caixa = new CaixaEletronico();
+        // GUI janela = new GUI(caixa);
+        // janela.setVisible(true); // Substitui o janela.show()
+    // }
 }
