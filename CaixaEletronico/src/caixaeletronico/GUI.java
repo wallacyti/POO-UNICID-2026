@@ -20,35 +20,21 @@ public class GUI extends JFrame {
     private JPanel contentPane;
     private ICaixaEletronico caixa;
 
-    // Método main para testar apenas a janela (inicializa um caixa vazio)
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    GUI frame = new GUI(new CaixaEletronico());
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
     // Construtor obrigatório recebendo a interface
     public GUI(ICaixaEletronico caixa) {
         this.caixa = caixa;
-        
-        setOpacity(1.0f); 
+
+        setOpacity(1.0f);
         setTitle("Caixa Eletronico");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 424, 406);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
-        
+
         JLabel lblNewLabel = new JLabel("Módulo do Cliente:");
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        
+
         JButton btnNewButton = new JButton("Efetuar Saque");
         btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btnNewButton.addActionListener(new ActionListener() {
@@ -64,10 +50,10 @@ public class GUI extends JFrame {
                 }
             }
         });
-        
+
         JLabel lblMduloDoAdministrador = new JLabel("Módulo do Administrador:");
         lblMduloDoAdministrador.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        
+
         JButton btnRelatorioDeCedulas = new JButton("Relatorio de Cedulas");
         btnRelatorioDeCedulas.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btnRelatorioDeCedulas.addActionListener(new ActionListener() {
@@ -75,7 +61,7 @@ public class GUI extends JFrame {
                 JOptionPane.showMessageDialog(null, GUI.this.caixa.pegaRelatorioCedulas());
             }
         });
-        
+
         JButton btnValorTotalDisponivel = new JButton("Valor Total Disponivel");
         btnValorTotalDisponivel.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btnValorTotalDisponivel.addActionListener(new ActionListener() {
@@ -83,7 +69,7 @@ public class GUI extends JFrame {
                 JOptionPane.showMessageDialog(null, GUI.this.caixa.pegaValorTotalDisponivel());
             }
         });
-        
+
         JButton btnReposioDeCedulas = new JButton("Reposição de Cedulas");
         btnReposioDeCedulas.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btnReposioDeCedulas.addActionListener(new ActionListener() {
@@ -100,7 +86,7 @@ public class GUI extends JFrame {
                 }
             }
         });
-        
+
         JButton btnCotaMinima = new JButton("Cota Minima");
         btnCotaMinima.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btnCotaMinima.addActionListener(new ActionListener() {
@@ -116,10 +102,10 @@ public class GUI extends JFrame {
                 }
             }
         });
-        
+
         JLabel lblMduloDeAmbos = new JLabel("Módulo de Ambos:");
         lblMduloDeAmbos.setFont(new Font("Tahoma", Font.PLAIN, 12));
-        
+
         JButton btnCotaMinima_1 = new JButton("Sair");
         btnCotaMinima_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btnCotaMinima_1.addActionListener(new ActionListener() {
