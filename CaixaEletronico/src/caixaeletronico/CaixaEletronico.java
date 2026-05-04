@@ -141,10 +141,16 @@ public class CaixaEletronico implements ICaixaEletronico {
 
     @Override
     public String armazenaCotaMinima(Integer min) {
-        // Valida e armazena o valor mínimo que o caixa deve manter para continuar operando
         if (min == null || min < 0) return "Valor invalido.";
+
+        // Impede cota minima maior ou igual ao saldo atual — seria impossivel operar
+        if (min >= total()) {
+            return "Cota invalida: o valor de R$ " + min 
+                 + " e maior ou igual ao saldo disponivel (R$ " + total() + ").";
+        }
+
         cotaMin = min;
-        return "Cota minima: R$ " + min;
+        return "Cota minima definida: R$ " + min;
     }
 
     // Retorna o histórico formatado de transações para exibição ao encerrar o sistema
