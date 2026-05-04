@@ -127,12 +127,11 @@ public class CaixaEletronico implements ICaixaEletronico {
 
     @Override
     public String reposicaoCedulas(Integer cedula, Integer qtd) {
-        // Valida os parâmetros recebidos antes de processar a reposição
         if (cedula == null || qtd == null || qtd <= 0) return "Parametros invalidos.";
-        // Busca a cédula informada na matriz e incrementa a quantidade disponível
         for (int[] c : cedulas) {
             if (c[0] == cedula) {
                 c[1] += qtd;
+                extrato.add("Reposicao R$ " + cedula + " x" + qtd + " | saldo: R$ " + total());
                 return "R$ " + cedula + ": " + c[1] + " un.";
             }
         }
