@@ -1,7 +1,7 @@
 # 🏧 Caixa Eletrônico — POO UNICID 2026
 
 > Projeto prático da disciplina de **Programação Orientada a Objetos** em Java.
-> Universidade Cidade de São Paulo (UNICID) — 1º Semestre de 2026.
+> Universidade Cidade de São Paulo (UNICID) — 3º Semestre de 2026.
 > Orientação: **Prof. Jadir Custódio Mendonça Junior**
 
 ---
